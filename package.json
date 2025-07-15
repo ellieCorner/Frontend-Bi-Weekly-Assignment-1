@@ -1,0 +1,23 @@
+{
+  "name": "browser-extensions-manager-ui-main",
+  "version": "1.0.0",
+  "description": "![Design preview for the Browser extensions manager UI coding challenge](./preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch styles/main.scss:styles/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ellieCorner/Frontend-Bi-Weekly-Assignment-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ellieCorner/Frontend-Bi-Weekly-Assignment-1/issues"
+  },
+  "homepage": "https://github.com/ellieCorner/Frontend-Bi-Weekly-Assignment-1#readme",
+  "dependencies": {
+    "sass": "^1.89.2"
+  }
+}

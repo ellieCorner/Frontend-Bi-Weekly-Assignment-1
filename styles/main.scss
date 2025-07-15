@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap");
+
+$neutral-900: hsl(227, 75%, 14%);
+$neutral-800: hsl(226, 25%, 17%);
+$neutral-700: hsl(225, 23%, 24%);
+$neutral-600: hsl(226, 11%, 37%);
+$neutral-300: hsl(0, 0%, 78%);
+$neutral-200: hsl(217, 61%, 90%);
+$neutral-100: hsl(0, 0%, 93%);
+$neutral-0: hsl(200, 60%, 99%);
+$red-400: hsl(3, 86%, 64%);
+$dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+$light-gradient: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+
+$light-bg: hsl(0, 0%, 98%);
+$light-card: hsl(0, 0%, 100%);
+$light-text: hsl(227, 75%, 14%);
+$light-subtext: hsl(226, 11%, 37%);
+$light-toggle: hsl(217, 61%, 90%);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  background: $dark-gradient;
+  color: $neutral-0;
+  padding: 2rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: $neutral-700;
+
+  .logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    img {
+      width: 140px;
+    }
+
+    h1 {
+      position: absolute;
+      clip: rect(0 0 0 0);
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+  }
+
+  .settings-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 0.5rem;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    background: url("../assets/images/icon-sun.svg") no-repeat center;
+    background-color: $neutral-600;
+
+    body.light & {
+      background: url("../assets/images/icon-moon.svg") no-repeat center;
+    }
+  }
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  .filters {
+    display: flex;
+    gap: 0.5rem;
+
+    .filter-btn {
+      background: $neutral-700;
+      border: none;
+      border-radius: 1.5rem;
+      padding: 0.5rem 1rem;
+      color: $neutral-0;
+      cursor: pointer;
+
+      &.active {
+        background: $red-400;
+      }
+    }
+  }
+}
+
+.extensions-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.extension-card {
+  background: $neutral-800;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .top {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .text {
+      h3 {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+      p {
+        font-size: 0.875rem;
+        color: $neutral-200;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      background: $neutral-700;
+      color: $neutral-0;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+
+    .toggle {
+      appearance: none;
+      width: 2rem;
+      height: 1rem;
+      background: $neutral-600;
+      border-radius: 1rem;
+      position: relative;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 50%;
+        background: white;
+        transition: 0.3s ease;
+      }
+
+      &:checked {
+        background: $red-400;
+        &::after {
+          left: 1rem;
+        }
+      }
+    }
+  }
+}
+
+body.light {
+  background: $light-gradient;
+  color: $light-text;
+
+  .header {
+    background-color: $light-bg;
+
+    .settings-btn {
+      background: url("../assets/images/icon-moon.svg") no-repeat center;
+      background-color: $neutral-100;
+    }
+  }
+
+  .filter-btn {
+    background: $light-toggle;
+    color: $light-text;
+
+    &.active {
+      background: $red-400;
+      color: white;
+    }
+  }
+
+  .extension-card {
+    background: $light-card;
+    color: $light-text;
+
+    .text p {
+      color: $light-subtext;
+    }
+
+    .actions {
+      button {
+        background: $neutral-200;
+        color: $light-text;
+      }
+
+      .toggle {
+        background: $neutral-300;
+
+        &:checked {
+          background: $red-400;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .extensions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

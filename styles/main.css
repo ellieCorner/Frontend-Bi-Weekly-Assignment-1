@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  background: linear-gradient(180deg, #040918 0%, #091540 100%);
+  color: hsl(200, 60%, 99%);
+  padding: 2rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: hsl(225, 23%, 24%);
+}
+.header .logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.header .logo img {
+  width: 140px;
+}
+.header .logo h1 {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.header .settings-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.5rem;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  background: url("../assets/images/icon-sun.svg") no-repeat center;
+  background-color: hsl(226, 11%, 37%);
+}
+body.light .header .settings-btn {
+  background: url("../assets/images/icon-moon.svg") no-repeat center;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.controls .filters {
+  display: flex;
+  gap: 0.5rem;
+}
+.controls .filters .filter-btn {
+  background: hsl(225, 23%, 24%);
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.5rem 1rem;
+  color: hsl(200, 60%, 99%);
+  cursor: pointer;
+}
+.controls .filters .filter-btn.active {
+  background: hsl(3, 86%, 64%);
+}
+
+.extensions-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.extension-card {
+  background: hsl(226, 25%, 17%);
+  padding: 1.25rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.extension-card .top {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.extension-card .top img {
+  width: 40px;
+  height: 40px;
+}
+.extension-card .top .text h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.extension-card .top .text p {
+  font-size: 0.875rem;
+  color: hsl(217, 61%, 90%);
+}
+.extension-card .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.extension-card .actions button {
+  background: hsl(225, 23%, 24%);
+  color: hsl(200, 60%, 99%);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.extension-card .actions .toggle {
+  appearance: none;
+  width: 2rem;
+  height: 1rem;
+  background: hsl(226, 11%, 37%);
+  border-radius: 1rem;
+  position: relative;
+  cursor: pointer;
+}
+.extension-card .actions .toggle::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: white;
+  transition: 0.3s ease;
+}
+.extension-card .actions .toggle:checked {
+  background: hsl(3, 86%, 64%);
+}
+.extension-card .actions .toggle:checked::after {
+  left: 1rem;
+}
+
+body.light {
+  background: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+  color: hsl(227, 75%, 14%);
+}
+body.light .header {
+  background-color: hsl(0, 0%, 98%);
+}
+body.light .header .settings-btn {
+  background: url("../assets/images/icon-moon.svg") no-repeat center;
+  background-color: hsl(0, 0%, 93%);
+}
+body.light .filter-btn {
+  background: hsl(217, 61%, 90%);
+  color: hsl(227, 75%, 14%);
+}
+body.light .filter-btn.active {
+  background: hsl(3, 86%, 64%);
+  color: white;
+}
+body.light .extension-card {
+  background: hsl(0, 0%, 100%);
+  color: hsl(227, 75%, 14%);
+}
+body.light .extension-card .text p {
+  color: hsl(226, 11%, 37%);
+}
+body.light .extension-card .actions button {
+  background: hsl(217, 61%, 90%);
+  color: hsl(227, 75%, 14%);
+}
+body.light .extension-card .actions .toggle {
+  background: hsl(0, 0%, 78%);
+}
+body.light .extension-card .actions .toggle:checked {
+  background: hsl(3, 86%, 64%);
+}
+
+@media (max-width: 768px) {
+  .extensions-grid {
+    grid-template-columns: 1fr;
+  }
+  .controls {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
